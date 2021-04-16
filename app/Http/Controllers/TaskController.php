@@ -3,35 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\User;
 use Illuminate\Http\Request;
+Use Illuminate\Support\Facades\Redirect;
 
 class TaskController extends Controller
 {
-    private $task;
-
-    public function __construct(Task $task)
-    {
-        $this->task = $task;
-    }
 
     public function index()
     {
         $tasks = Task::all();
-
-        return view('tasks.index', ['tasks'=>$tasks]);
+        return view('admin.tasks.list', ['tasks'=>$tasks]);
+    }
+    public function create()
+    {
+        $users = User::all();
+        return view('admin.tasks.register' , ['users'=>$users]);
     }
     public function store(Request $request)
     {
-        $taskData = $request->all();
-        $this->task->create($taskData);
-        return view('panel.cursos.create');
-
-
+        $task = new Task();
+        $task->create($request->all());
+        return redirect()->route('admin.tasks.list');
     }
 
     public function show($id)
     {
         //
+    }
+    public function edit($id)
+    {
+        $tasks = Task::find($id);
+        return view('admin.tasks.register',['tasks' => $tasks]);
     }
     public function update(Request $request, $id)
     {

@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('description');
-            $table->enum('status', ['A fazer', 'Fazendo', 'Concluído']);
+            $table->string('status');
             $table->unsignedInteger('user_id'); // Chave estrangeira Sem sinal
             $table->foreign('user_id')->references('id')->on('users'); // Referenciando tabela
             $table->timestamps();

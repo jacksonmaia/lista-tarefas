@@ -1,4 +1,6 @@
 <?php
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,8 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/', 'HomeController@index');
+    Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+Route::prefix('admin')->group(function(){
+    Route::get('/users', 'UserController@index');
+    Route::get('/tasks', 'TaskController@index');
+    Route::get('/tasks/new', 'TaskController@create');
+    Route::post('/tasks/save', 'TaskController@store');
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/tasks/{id}', 'TaskController@edit');
+});
