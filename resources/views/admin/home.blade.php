@@ -8,29 +8,18 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    {{ $user = Auth::user(); }}
-
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <h2>Seja bem vindo!</h2>
-                    @foreach ($tasks as $task)
-                        @if ($task->user_id == $user->id)
-                            <p>{{ $task->title }}</p>
-                        @endif
-
-                    @endforeach
+                    <h2>Seja bem vindo Administrador!</h2>
+                    <a href="{{url('admin/users')}}">Usuários</a>
+                    <a href="{{url('admin/tasks')}}">Tarefas</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-
-
-
-
-

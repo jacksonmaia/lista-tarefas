@@ -16,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'HomeController@index');
     Auth::routes();
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('user/home', 'HomeController@index')->name('home');
 });
 Route::prefix('admin')->group(function(){
-    Route::get('/users', 'UserController@index');
-    Route::get('/tasks', 'TaskController@index');
-    Route::get('/tasks/new', 'TaskController@create');
-    Route::post('/tasks/save', 'TaskController@store');
-
-
-    Route::get('/tasks/{id}', 'TaskController@edit');
+    Route::get('/users', 'UserController@index')->name('user.list');
+    Route::get('/tasks', 'TaskController@index')->name('tasks.list');
+    Route::get('/tasks/new', 'TaskController@create')->name('');
+    Route::post('/tasks/save', 'TaskController@store')->name('admin.task.save');
+    Route::delete('/tasks/delete/{id}', 'TaskController@delete')->name('admin.task.delete');
 });
+
+

@@ -36,8 +36,12 @@
                             <td>{{ $task->title }}</td>
                             <td>{{ $task->description }}</td>
                             <td>{{ $task->status }}</td>
-                            <td><a href="tasks/{{$task->id}}" class="btn btn-info">Editar</a></td>
-                            <td><a href="" class="btn btn-danger">Deletar</a></td>
+                            <td>
+                                <form action="tasks/delete/{{$task->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button href="tasks/{{$task->id}}" class="btn btn-danger">Deletar</button></td>
+                                </form>
                           </tr>
                           @endforeach
 

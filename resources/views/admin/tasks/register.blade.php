@@ -5,10 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header">
+                    <h2><p>Cadastro de tarefas</p></h2>
+                    <a href="{{url('admin/tasks')}}"> Voltar Listas de Tarefas</a>
+                </div>
                 <div class="card-body">
-                        <form method="POST" action="{{ url('/admin/tasks/save') }}">
+                        <form method="POST" action="{{ url('admin.task.save') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="Titulo" class="form-label">Titulo da tarefa</label>
