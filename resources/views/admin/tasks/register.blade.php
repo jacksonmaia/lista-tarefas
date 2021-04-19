@@ -6,11 +6,14 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
+                    <a href="{{ url('admin/tasks') }}">
+                        <button type="button" class="btn btn-warning">Voltar</button>
+                    </a>
                     <h2><p>Cadastro de tarefas</p></h2>
                     <a href="{{url('admin/tasks')}}"> Voltar Listas de Tarefas</a>
                 </div>
                 <div class="card-body">
-                        <form method="POST" action="{{ url('admin.task.save') }}">
+                        <form method="POST" action="{{ url('/admin/tasks/save') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="Titulo" class="form-label">Titulo da tarefa</label>
@@ -25,7 +28,7 @@
                                 <select class="form-select" name="user_id">
                                     <option selected>Aloque a tarefa ao um usuário</option>
                                     @foreach ($users as $user)
-                                        <option value="{{ $user->id }}<">{{ $user->name }}</option>
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

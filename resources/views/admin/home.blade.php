@@ -15,8 +15,22 @@
                     @endif
 
                     <h2>Seja bem vindo Administrador!</h2>
-                    <a href="{{url('admin/users')}}">Usuários</a>
-                    <a href="{{url('admin/tasks')}}">Tarefas</a>
+
+
+                    <div class="card" style="width: 49%;display: inline-block;">
+                        <div class="card-body">
+                        <h5 class="card-title">Usuários</h5>
+                        <p class="card-text">Todos os usuários cadastrados no sistema </p>
+                        <a href="{{url('admin/users')}}" class="btn btn-primary">Ir até lá</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 49%;display: inline-block;">
+                        <div class="card-body">
+                        <h5 class="card-title">Tarefas</h5>
+                        <p class="card-text">Todos os tarefas cadastrados no sistema </p>
+                        <a href="{{url('admin/tasks')}}" class="btn btn-primary">Ir até lá</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

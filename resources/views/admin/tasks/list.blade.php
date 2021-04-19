@@ -6,6 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
+                    <a href="{{ url('admin/home') }}">
+                        <button type="button" class="btn btn-warning">Voltar</button>
+                    </a>
                     <h2>Lista de tarefas</h2>
                     <a href="{{ url('admin/tasks/new') }}">Nova tarefa</a>
                 </div>
@@ -17,9 +20,6 @@
                         </div>
                     @endif
 
-                    @foreach ($tasks as $task)
-                        <p>{{ $task->title }}</p>
-                    @endforeach
 
                     <table class="table">
                         <thead>
@@ -37,11 +37,11 @@
                             <td>{{ $task->description }}</td>
                             <td>{{ $task->status }}</td>
                             <td>
-                                <form action="tasks/delete/{{$task->id}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button href="tasks/{{$task->id}}" class="btn btn-danger">Deletar</button></td>
-                                </form>
+                            <form action="tasks/delete/{{$task->id}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button href="tasks/{{$task->id}}" class="btn btn-danger">Deletar</button></td>
+                            </form>
                           </tr>
                           @endforeach
 

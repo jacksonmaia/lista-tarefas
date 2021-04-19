@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                    <h2>Seja bem vindo {{ $user = Auth::user()->name }}!</h2>
+                    <h2>Seja bem vindo !</h2>
                     <h4>Essas são suas atividades</h4>
                     <table class="table">
                         <thead>
@@ -26,6 +26,7 @@
                           </tr>
                         </thead>
                         <tbody>
+
                         @foreach ($tasks as $task)
 
                             @if ($task->user_id == $user)

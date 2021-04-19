@@ -20,10 +20,10 @@ class HomeController extends Controller
     public function index()
     {
         $tasks = Task::all();
-        return view('admin.home', ['tasks'=> $tasks]);
+        return view('home', ['tasks'=> $tasks]);
     }
     public function adminHome()
     {
-        return view('user.home');
+        return view('admin.home');
     }
 }

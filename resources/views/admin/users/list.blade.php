@@ -6,6 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
+                    <a href="{{ url('admin/home') }}">
+                        <button type="button" class="btn btn-warning">Voltar</button>
+                    </a>
                     <h2>Lista de usuários cadastrados </h2>
                 </div>
 

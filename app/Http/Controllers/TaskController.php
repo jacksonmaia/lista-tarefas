@@ -22,16 +22,15 @@ class TaskController extends Controller
     }
     public function store(Request $request)
     {
-        $task = new Task();
-        $task = $task->create( $request->all() );
-
-        return dd('text');
+        $task = Task::create( $request->all() );
+        return redirect()->route('tasks.list');
 
     }
-    public function delete(Task $id)
+    public function delete($id)
     {
-        $id->delete();
-        return view('admin.tasks.list');
+        $task = Task::find($id);
+        $task->delete();
+        return redirect()->route('tasks.list');
     }
 
 }
