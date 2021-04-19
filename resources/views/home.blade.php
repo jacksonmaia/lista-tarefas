@@ -35,11 +35,16 @@
                                     <td>{{ $task->title }}</td>
                                     <td>{{ $task->description }}</td>
                                     <td>
-                                        <select class="form-select" name="user_id">
-                                                <option value="A fazer">{{ $task->status }}</option>
-                                                <option value="Fazendo">Fazendo</option>
-                                                <option value="Concluido">Concluído</option>
-                                        </select>
+                                        <form method="post" action="{{ url('/task/status/update') }}/{{$task->id}}">
+                                            @csrf
+                                            @method('PUT')
+                                            <select class="form-select" name="status">
+                                                    <option value="A fazer">{{ $task->status }}</option>
+                                                    <option value="Fazendo">Fazendo</option>
+                                                    <option value="Concluido">Concluído</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-primary">Alterar status</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endif

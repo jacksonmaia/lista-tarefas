@@ -32,5 +32,9 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('tasks.list');
     }
-
+    public function updateStatus(Request $request, $id){
+        $task = Task::find($id);
+        $task->update($request->all());
+        return redirect()->route('home');
+    }
 }
