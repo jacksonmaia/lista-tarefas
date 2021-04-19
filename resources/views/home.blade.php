@@ -34,7 +34,13 @@
                                 <tr>
                                     <td>{{ $task->title }}</td>
                                     <td>{{ $task->description }}</td>
-                                    <td>{{ $task->status }}</td>
+                                    <td>
+                                        <select class="form-select" name="user_id">
+                                                <option value="A fazer">{{ $task->status }}</option>
+                                                <option value="Fazendo">Fazendo</option>
+                                                <option value="Concluido">Concluído</option>
+                                        </select>
+                                    </td>
                                 </tr>
                             @endif
                         @endforeach
